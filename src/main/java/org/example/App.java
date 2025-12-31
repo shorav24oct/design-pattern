@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.singleton.EagerSingleton;
+import org.example.singleton.LazySingleton;
 
 /**
  * Hello world!
@@ -12,10 +13,10 @@ public class App
     {
         System.out.println( "Hello World!" );
 
-        EagerSingleton eagerSingleton1 = EagerSingleton.getInstance();
+        LazySingleton eagerSingleton1 = LazySingleton.getInstance();
         System.out.println(eagerSingleton1.hashCode());
 
-        EagerSingleton eagerSingleton2 = EagerSingleton.getInstance();
+        LazySingleton eagerSingleton2 = LazySingleton.getInstance();
         System.out.println(eagerSingleton2.hashCode());
     }
 }
