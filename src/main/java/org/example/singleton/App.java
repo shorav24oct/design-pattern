@@ -1,30 +1,16 @@
 package org.example.singleton;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args ) throws CloneNotSupportedException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        System.out.println( "Hello World!" );
+    public static void main( String[] args ) {
 
-        LazySingleton lazySingleton = LazySingleton.getInstance();
-        System.out.println(lazySingleton.hashCode());
+        SingletonEnum instance1 = SingletonEnum.INSTANCE;
+        instance1.perform();
 
-        //LazySingleton lazySingleton1 = (LazySingleton) lazySingleton.clone();
+        SingletonEnum instance2 = SingletonEnum.INSTANCE;
+        instance2.perform();
 
-        LazySingleton reflectionInstance = null;
-        Constructor[] constructors = LazySingleton.class.getDeclaredConstructors();
+        System.out.println(instance1.hashCode() == instance2.hashCode());
 
-        for (Constructor constructor : constructors) {
-            constructor.setAccessible(true);
-            reflectionInstance = (LazySingleton) constructor.newInstance();
-        }
-
-        System.out.println(reflectionInstance.hashCode());
     }
 }
