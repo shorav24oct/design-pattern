@@ -1,8 +1,13 @@
 package org.example.singleton;
 
-public class LazySingleton {
+public class LazySingleton extends MyClone {
 
     private LazySingleton() {
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
     }
 
     private static LazySingleton instance;
