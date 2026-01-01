@@ -10,6 +10,10 @@ public class LazySingleton extends MyClone {
             throw new IllegalStateException("Object can't be create using reflection");
     }
 
+    protected Object readResolve() {
+        return instance;
+    }
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException();
